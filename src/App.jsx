@@ -1,10 +1,8 @@
-import { useState } from 'react'
-import './App.css'
+import { useState } from "react";
+import Title from "./components/title";
 
 function App() {
-  return (
-    <h1>Mis recetas...</h1>
-  )
+  return <Title />;
 }
 
-export default App
+export default App;
