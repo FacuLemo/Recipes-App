@@ -1,10 +1,32 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
+import Home from './pages/Home';
+import Error from './pages/Error';
+import RecipeDetail from './pages/RecipeDetail';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 import "./index.css";
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+  },
+  {
+    path: "/recipe/:id",
+    element: <RecipeDetail />
+  },
+  {
+    path: "*",
+    element: <Error />
+  }
+]);
+
+ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+    <RouterProvider router={router} />
+  </React.StrictMode>,
+)
