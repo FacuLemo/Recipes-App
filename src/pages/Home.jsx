@@ -1,20 +1,31 @@
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
 import Navbar from "../components/Navbar";
-import ModalCreate from "../components/ModalCreate";
+import { RecipeContext } from "../contexts/Recipes";
+import RecipeCard from "../components/RecipeCard";
+import ModalCreate from "../components/modalCreate";
 
 export default function Home() {
+  const { recipes } = useContext(RecipeContext);
+
+  const mostrarRecipes = () => {
+    console.log(recipes);
+  };
+
   return (
     <Fragment>
       <Navbar />
       <div className="flex justify-around mt-10">
-        <h1 className="text-4xl ">Bienvenido al recetario React</h1>
-        <button
-          type="button"
-          className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
-        >
-          Nueva receta
-        </button>
-        {/* <ModalCreate/> */}
+        <h1 className="text-4xl font-bold">Bienvenido al recetario React</h1>
+        <ModalCreate/>
+      </div>
+      <div className="flex mx-11 mt-3">
+        {recipes.map((recipe) => {
+          <RecipeCard
+            key={recipe.id}
+            recipe_title={recipe.title}
+            recipe_description={recipe.description}
+          />;
+        })}
       </div>
     </Fragment>
   );

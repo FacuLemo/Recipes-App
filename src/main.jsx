@@ -1,14 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Home from './pages/Home';
-import Error from './pages/Error';
-import RecipeDetail from './pages/RecipeDetail';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import Home from "./pages/Home";
+import Error from "./pages/Error";
+import RecipeDetail from "./pages/RecipeDetail";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
-
+import { RecipeContextProvider } from "./contexts/Recipes";
 
 const router = createBrowserRouter([
   {
@@ -17,16 +14,18 @@ const router = createBrowserRouter([
   },
   {
     path: "/recipe/:id",
-    element: <RecipeDetail />
+    element: <RecipeDetail />,
   },
   {
     path: "*",
-    element: <Error />
-  }
+    element: <Error />,
+  },
 ]);
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>,
-)
+    <RecipeContextProvider>
+      <RouterProvider router={router} />
+    </RecipeContextProvider>
+  </React.StrictMode>
+);
