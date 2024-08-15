@@ -3,9 +3,10 @@ import { RecipeContext } from "../contexts/Recipes";
 
 export default function ModalCreate() {
   const [showModal, setShowModal] = useState(false);
-  const [inputTitle, setinputTitle] = useState("");
-  const [inputDesc, setinputDesc] = useState("");
-  const { setRecipes } = useContext(RecipeContext);
+  const [inputTitle, setInputTitle] = useState("");
+  const [inputDesc, setInputDesc] = useState("");
+  const [alert, setAlert] = useState(false);
+  const { recipes, setRecipes } = useContext(RecipeContext);
 
   const openModal = () => {
     setShowModal(true);
@@ -16,9 +17,21 @@ export default function ModalCreate() {
   };
 
   const addRecipe = () => {
-    //TODO
-    closeModal()
-  }
+    if (inputTitle == "" || inputDesc == "") {
+      setAlert(true);
+    } else {
+      const newRecipe = {
+        title: inputTitle,
+        description: inputDesc,
+      };
+      console.log(newRecipe, recipes)
+      setRecipes([...recipes, newRecipe]);
+      setAlert(false);
+      setInputTitle("");
+      setInputDesc("");
+      closeModal();
+    }
+  };
 
   return (
     <Fragment>
@@ -29,7 +42,6 @@ export default function ModalCreate() {
       >
         Crear receta
       </button>
-
       <div
         className={`${
           showModal ? "fixed" : "hidden"
@@ -53,16 +65,15 @@ export default function ModalCreate() {
                 >
                   <path
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
                   />
                 </svg>
-                <span className="sr-only">Close modal</span>
               </button>
             </div>
-            {/* // Modal body */}
+            {/* inputs */}
             <div className="p-4 md:p-5 flex flex-col gap-5">
               <div>
                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
@@ -72,7 +83,7 @@ export default function ModalCreate() {
                   type="text"
                   value={inputTitle}
                   onChange={(e) => {
-                    setinputTitle(e.target.value);
+                    setInputTitle(e.target.value);
                   }}
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                   placeholder="Pizza a la piedra"
@@ -86,13 +97,19 @@ export default function ModalCreate() {
                 <textarea
                   value={inputDesc}
                   onChange={(e) => {
-                    setinputDesc(e.target.value);
+                    setInputDesc(e.target.value);
                   }}
                   placeholder="2 pocillos de aceite..."
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                   required
                 />
               </div>
+
+              {alert && (
+                <div className="bg-red-500 py-2 rounded text-white text-center animate-pulse">
+                  Por favor complete los campos.
+                </div>
+              )}
 
               <button
                 onClick={addRecipe}

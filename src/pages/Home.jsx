@@ -5,7 +5,7 @@ import RecipeCard from "../components/RecipeCard";
 import ModalCreate from "../components/modalCreate";
 
 export default function Home() {
-  const { recipes } = useContext(RecipeContext);
+  let { recipes } = useContext(RecipeContext);
 
   const mostrarRecipes = () => {
     console.log(recipes);
@@ -16,16 +16,17 @@ export default function Home() {
       <Navbar />
       <div className="flex justify-around mt-10">
         <h1 className="text-4xl font-bold">Bienvenido al recetario React</h1>
-        <ModalCreate/>
+        <ModalCreate />
       </div>
+      <div onClick={mostrarRecipes}>Escribir Recetas en consola</div>
       <div className="flex mx-11 mt-3">
-        {recipes.map((recipe) => {
+        {recipes.map((recipe, index) => (
           <RecipeCard
-            key={recipe.id}
+            key={index}
             recipe_title={recipe.title}
             recipe_description={recipe.description}
-          />;
-        })}
+          />
+        ))}
       </div>
     </Fragment>
   );
