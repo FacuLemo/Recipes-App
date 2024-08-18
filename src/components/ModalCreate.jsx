@@ -2,11 +2,11 @@ import { Fragment, useContext, useState } from "react";
 import { RecipeContext } from "../contexts/Recipes";
 
 export default function ModalCreate() {
-  const [showModal, setShowModal] = useState(false);
-  const [inputTitle, setInputTitle] = useState("");
-  const [inputDesc, setInputDesc] = useState("");
-  const [alert, setAlert] = useState(false);
-  const { recipes, setRecipes } = useContext(RecipeContext);
+  const [showModal, setShowModal] = useState(false),
+    [inputTitle, setInputTitle] = useState(""),
+    [inputDesc, setInputDesc] = useState(""),
+    [alert, setAlert] = useState(false),
+    { recipes, setRecipes } = useContext(RecipeContext);
 
   const openModal = () => {
     setShowModal(true);
@@ -24,7 +24,7 @@ export default function ModalCreate() {
         title: inputTitle,
         description: inputDesc,
       };
-      console.log(newRecipe, recipes)
+      console.log(newRecipe, recipes);
       setRecipes([...recipes, newRecipe]);
       setAlert(false);
       setInputTitle("");
