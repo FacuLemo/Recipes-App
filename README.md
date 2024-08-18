@@ -9,7 +9,10 @@ Crear una aplicación en React que permita a los usuarios gestionar recetas de c
 
 ---
 
-![imagen](https://github.com/user-attachments/assets/505effb5-c01d-4686-bb83-5e98bf8e3074)
+![imagen](https://github.com/user-attachments/assets/fc54379a-36b9-4d3a-a1fb-4d09eee657cc)
+
+---
+![imagen](https://github.com/user-attachments/assets/c8509fd4-da5e-4d56-ac72-3b7d63c42033)
 
 # Requisitos Funcionales
 
