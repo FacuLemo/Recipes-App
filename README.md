@@ -4,7 +4,14 @@
 
 Crear una aplicación en React que permita a los usuarios gestionar recetas de cocina. La aplicación debe utilizar los hooks `useState`, `useEffect`, y `useContext` para manejar el estado y efectos secundarios.
 
-## Requisitos Funcionales
+## Capturas
+![imagen](https://github.com/user-attachments/assets/9655fa05-6954-47b7-a5b8-1b42f9346574)
+
+---
+
+![imagen](https://github.com/user-attachments/assets/505effb5-c01d-4686-bb83-5e98bf8e3074)
+
+# Requisitos Funcionales
 
 ### Agregar Recetas
 
@@ -46,3 +53,7 @@ Crear una aplicación en React que permita a los usuarios gestionar recetas de c
 
 - La aplicación debe ser funcional y cumplir con todos los requisitos mencionados.
 - El código debe ser limpio, bien comentado y seguir buenas prácticas de desarrollo.
+
+## Autor
+Este proyecto fue desarrollado por:
+- [Facundo Lemo](https://github.com/FacuLemo)
