@@ -48,7 +48,7 @@ export default function ModalCreate() {
         }  "mx-auto animate-fade-in-up animate-duration-slow inset-x-0 mx-auto sm:w-3/4 md:w-2/4 inset-0 flex justify-center align-middle  pt-10 max-h-full`}
       >
         <div className="relative p-4 w-full max-w-md max-h-full">
-          <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
+          <div className="relative bg-white rounded-lg border shadow-2xl dark:bg-gray-700">
             <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
                 Cargar nueva receta
