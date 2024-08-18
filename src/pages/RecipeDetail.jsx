@@ -1,4 +1,4 @@
-import { Fragment, useContext } from "react";
+import { Fragment, useContext, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import { useNavigate, useParams } from "react-router-dom";
 import { RecipeContext } from "../contexts/Recipes";
@@ -6,8 +6,15 @@ import { RecipeContext } from "../contexts/Recipes";
 export default function RecipeDetail() {
   const { id } = useParams(),
     { recipes, setRecipes } = useContext(RecipeContext),
-    Navigate = useNavigate(),
-    recipe = recipes[id];
+    Navigate = useNavigate();
+
+  const recipe = recipes[id] ? recipes[id] : -1;
+
+  useEffect(() => {
+    if (recipe === -1) {
+      Navigate("/error");
+    }
+  }, [recipe]);
 
   const deleteRecipe = () => {
     let newRecipes = recipes.filter((r, i) => i !== Number(id));
