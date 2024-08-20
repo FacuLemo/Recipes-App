@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import Navbar from "../components/Navbar";
-import coconut from "../../public/coconut.jpeg";
+import coconut from "/coconut.jpeg";
 
 export default function Error() {
   return (

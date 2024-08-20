@@ -5,12 +5,17 @@ import Error from "./pages/Error";
 import RecipeDetail from "./pages/RecipeDetail";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
-import { RecipeContextProvider } from "./contexts/Recipes";
+import { RecipeContextProvider } from "./contexts/RecipesContext";
+import Login from "./pages/Login";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <Login/>,
+  },
+  {
+    path: "/home",
+    element: <Home/>,
   },
   {
     path: "/recipe/:id",

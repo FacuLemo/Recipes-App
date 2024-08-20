@@ -1,7 +1,7 @@
 import { Fragment, useContext, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import { useNavigate, useParams } from "react-router-dom";
-import { RecipeContext } from "../contexts/Recipes";
+import { RecipeContext } from "../contexts/RecipesContext";
 
 export default function RecipeDetail() {
   const { id } = useParams(),
@@ -31,7 +31,7 @@ export default function RecipeDetail() {
         <div className="flex justify-between my-2">
           <a
             onClick={() => Navigate("/")}
-            className=" self-start cursor-pointer inline-flex items-center px-3 py-2.5 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            className=" self-start cursor-pointer inline-flex items-center px-3 py-2.5 text-sm font-medium text-center text-white bg-teal-700 rounded-lg hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800"
           >
             <svg
               className="rotate-180 w-3.5 h-3.5 ms-2"
@@ -53,7 +53,7 @@ export default function RecipeDetail() {
 
           <a
             onClick={deleteRecipe}
-            className="text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-red-300 rounded-lg text-sm px-6 py-2.5 mb-4"
+            className="text-white cursor-pointer bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-red-300 rounded-lg text-sm px-6 py-2.5 mb-4"
           >
             Eliminar
           </a>

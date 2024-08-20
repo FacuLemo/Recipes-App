@@ -1,5 +1,5 @@
 import { Fragment, useContext, useState } from "react";
-import { RecipeContext } from "../contexts/Recipes";
+import { RecipeContext } from "../contexts/RecipesContext";
 
 export default function ModalCreate() {
   const [showModal, setShowModal] = useState(false),
@@ -38,7 +38,7 @@ export default function ModalCreate() {
       <button
         type="button"
         onClick={openModal}
-        className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+        className="focus:outline-none text-white bg-violet-700 hover:bg-violet-800 focus:ring-4 focus:ring-violet-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
       >
         Crear receta
       </button>
@@ -55,7 +55,7 @@ export default function ModalCreate() {
               </h3>
               <button
                 onClick={closeModal}
-                className="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                className="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
               >
                 <svg
                   className="w-3 h-3"
@@ -76,7 +76,7 @@ export default function ModalCreate() {
             {/* inputs */}
             <div className="p-4 md:p-5 flex flex-col gap-5">
               <div>
-                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                <label className="block mb-2 text-sm font-medium text-gray-900">
                   Nombre de la receta
                 </label>
                 <input
@@ -85,13 +85,13 @@ export default function ModalCreate() {
                   onChange={(e) => {
                     setInputTitle(e.target.value);
                   }}
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-violet-500 focus:border-violet-500 block w-full p-2.5 "
                   placeholder="Pizza a la piedra"
                   required
                 />
               </div>
               <div>
-                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                <label className="block mb-2 text-sm font-medium text-gray-900">
                   Descripción
                 </label>
                 <textarea
@@ -100,7 +100,7 @@ export default function ModalCreate() {
                     setInputDesc(e.target.value);
                   }}
                   placeholder="2 pocillos de aceite..."
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-violet-500 focus:border-violet-500 block w-full p-2.5"
                   required
                 />
               </div>
@@ -113,7 +113,7 @@ export default function ModalCreate() {
 
               <button
                 onClick={addRecipe}
-                className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                className="w-full text-white bg-violet-700 hover:bg-violet-800 focus:ring-4 focus:outline-none focus:ring-violet-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
               >
                 Agregar receta!
               </button>

@@ -1,8 +1,8 @@
 import { Fragment, useContext } from "react";
 import Navbar from "../components/Navbar";
-import { RecipeContext } from "../contexts/Recipes";
+import { RecipeContext } from "../contexts/RecipesContext";
 import RecipeCard from "../components/RecipeCard";
-import ModalCreate from "../components/modalCreate";
+import ModalCreate from "../components/ModalCreate";
 
 export default function Home() {
   const { recipes } = useContext(RecipeContext);
