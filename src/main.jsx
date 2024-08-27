@@ -3,19 +3,20 @@ import ReactDOM from "react-dom/client";
 import Home from "./pages/Home";
 import Error from "./pages/Error";
 import RecipeDetail from "./pages/RecipeDetail";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "./index.css";
-import { RecipeContextProvider } from "./contexts/RecipesContext";
 import Login from "./pages/Login";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { RecipeContextProvider } from "./contexts/RecipesContext";
+import { LoginContextProvider } from "./contexts/LoginContext";
+import "./index.css";
 
-const router = createBrowserRouter([
+const authRouter = createBrowserRouter([
   {
     path: "/",
-    element: <Login/>,
+    element: <Login />,
   },
   {
     path: "/home",
-    element: <Home/>,
+    element: <Home />,
   },
   {
     path: "/recipe/:id",
@@ -27,10 +28,29 @@ const router = createBrowserRouter([
   },
 ]);
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Login />,
+  },
+  {
+    path: "*",
+    element: <Error />,
+  },
+]);
+
+const logged = sessionStorage.getItem("usuarioSesion");
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RecipeContextProvider>
-      <RouterProvider router={router} />
-    </RecipeContextProvider>
+    <LoginContextProvider>
+      <RecipeContextProvider>
+        {logged ? (
+          <RouterProvider router={authRouter} />
+        ) : (
+          <RouterProvider router={router} />
+        )}
+      </RecipeContextProvider>
+    </LoginContextProvider>
   </React.StrictMode>
 );
